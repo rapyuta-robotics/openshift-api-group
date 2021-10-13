@@ -1,7 +1,7 @@
 FROM golang:1.8.1
 
 # Fix for expired LE root cert
-RUN [[ -f /usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt ]] && rm /usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
+RUN rm /usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
 RUN update-ca-certificates
 
 WORKDIR $GOPATH/src/github.com/player-two/openshift-api-group/
